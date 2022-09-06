@@ -6,7 +6,7 @@ document.getElementById('phone').addEventListener('blur', validatePhone);
 
 function validateName() {
   const name = document.getElementById('name');
-  console.log(name);
+  console.log(name.value);
   const re = /^[a-zA-Z]{2,10}$/;
 
   if (!re.test(name.value)) {
@@ -16,7 +16,17 @@ function validateName() {
   }
 }
 
-function validateZip() {}
+function validateZip() {
+  const zip = document.getElementById('zip');
+  console.log(zip.value);
+  const re = /^[0-9]{5}(-[0-9]{4})?$/;
+
+  if (!re.test(zip.value)) {
+    zip.classList.add('is-invalid');
+  } else {
+    zip.classList.remove('is-invalid');
+  }
+}
 
 function validateEmail() {}
 
