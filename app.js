@@ -40,4 +40,14 @@ function validateEmail() {
   }
 }
 
-function validatePhone() {}
+function validatePhone() {
+  const phone = document.getElementById('phone');
+  console.log(phone.value);
+  const re = /^\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}$/;
+
+  if (!re.test(phone.value)) {
+    phone.classList.add('is-invalid');
+  } else {
+    phone.classList.remove('is-invalid');
+  }
+}
