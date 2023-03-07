@@ -3,11 +3,12 @@ document.getElementById('name').addEventListener('blur', validateName);
 document.getElementById('zip').addEventListener('blur', validateZip);
 document.getElementById('email').addEventListener('blur', validateEmail);
 document.getElementById('phone').addEventListener('blur', validatePhone);
+document.querySelector('.submit').addEventListener('click', validateForm);
 
 function validateName() {
   const name = document.getElementById('name');
   console.log(name.value);
-  const re = /^[a-zA-Z]{2,10}$/;
+  const re = /^[a-zA-Z]{2,15}$/;
 
   if (!re.test(name.value)) {
     name.classList.add('is-invalid');
@@ -50,4 +51,12 @@ function validatePhone() {
   } else {
     phone.classList.remove('is-invalid');
   }
+}
+
+function validateForm(e) {
+  e.preventDefault();
+  validateName();
+  validateZip();
+  validateEmail;
+  validatePhone();
 }
